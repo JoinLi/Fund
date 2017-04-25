@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 import ly.funds.R;
 import ly.funds.adapter.ViewPagerAdapter;
 import ly.funds.fragment.FundFragment;
+import ly.funds.fragment.SocialFragment;
 
 public class Main_interface extends BaseActivity implements View.OnClickListener {
 
@@ -69,7 +70,7 @@ public class Main_interface extends BaseActivity implements View.OnClickListener
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(FundFragment.newInstance(), "公积金");
-        adapter.addFragment(FundFragment.newInstance(), "发布车源");
+        adapter.addFragment(SocialFragment.newInstance(), "社保");
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

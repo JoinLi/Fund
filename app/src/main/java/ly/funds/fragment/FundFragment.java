@@ -53,7 +53,7 @@ public class FundFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.layout_fragment_fund;
+        return R.layout.fragment_fund;
     }
 
     @Override
