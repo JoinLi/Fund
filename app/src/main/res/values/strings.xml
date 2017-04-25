@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">某软件</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_id">学号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="ed_yzm">验证码</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="text_sfz">身份证号：</string>
+    <string name="text_ye">公积金余额：</string>
+    <string name="text_dwmc">单位名称：</string>
+    <string name="text_ce">月缴存额：</string>
+    <string name="text_js">缴存基数：</string>
+    <string name="text_rq">交至年月：</string>
+    <string name="text_gr">个人账号：</string>
+    <string name="text_kh">开户日期：</string>
+    <string name="text_dwzh">单位账号：</string>
+</resources>

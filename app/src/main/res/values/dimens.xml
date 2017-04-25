@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 间距 -->
+    <dimen name="normal_space">10dp</dimen>
+    <dimen name="little_sapce">5dp</dimen>
+    <dimen name="top_image_height">180dp</dimen>
+
+    //fragment context
+    <dimen name="context_height">70dp</dimen>
+    <dimen name="context_margin">42dp</dimen>
+
+    //fragment fabu context
+    <dimen name="context_fabu_height">45dp</dimen>
+
+    <dimen name="context_fabu_mix_top">5dp</dimen>
+    <dimen name="context_fabu_small_top">2dp</dimen>
+
+    // 注册 分割线
+    <dimen name="context_registered_height">1dp</dimen>
+</resources>
