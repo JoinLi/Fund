@@ -2,6 +2,7 @@ package ly.funds.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     @Bind(R.id.text_id)
     AutoCompleteTextView textId;
+    @Bind(R.id.checkbox)
+    CheckBox checkbox;
     private Dialog progressDialog;
     private Cookie cookie;
 
@@ -87,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     dialogShow();
                     loginPosts(yzm, id, passWord);
+
                 }
 
 
@@ -103,7 +108,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+        checkbox.setChecked(sp.getBoolean("isChecked", false));
+        textId.setText(sp.getString("id", ""));
+        mPasswordView.setText(sp.getString("password", ""));
+    }
 
+    private void saveData(boolean isChecked) {
+        SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        if (isChecked) {
+            editor.putString("id", textId.getText().toString().trim());
+            editor.putString("password", mPasswordView.getText().toString().trim());
+            editor.putBoolean("isChecked", true);
+        } else {
+            editor.clear();
+
+        }
+        editor.commit();
     }
 
     private void dialogShow() {
@@ -116,11 +138,11 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        progressDialog.dismiss();
-    }
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        progressDialog.dismiss();
+//    }
 
     /**
      * 1 获取验证码以及cookie
@@ -156,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
             cookie = cookies1.get(0);
             LogUtil.e("COOKIE值：" + cookie.value());
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
@@ -167,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
         OkHttpUtils
                 .post()
                 .url(FundApi.FUND_LOGIN_URL)
-                .addHeader("Cookie", "JSESSIONID=" + cookie.value())
+                .addHeader("Cookie", "JSESSIONID=" + cookie + "")
                 .addHeader("Content-Type",
                         "application/x-www-form-urlencoded")
                 .addParams("certinum", id)
@@ -178,6 +200,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         LogUtil.e("数据" + e);
+                        getCode();
                         progressDialog.dismiss();
                         Snackbar.make(getCurrentFocus(), "登录失败", Snackbar.LENGTH_LONG).show();
                     }
@@ -188,6 +211,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.indexOf("个人信息查询") != -1) {
                             getLoginValue();
                         } else {
+                            getCode();
                             progressDialog.dismiss();
                             Snackbar.make(getCurrentFocus(), "登录失败", Snackbar.LENGTH_LONG).show();
                         }
@@ -200,10 +224,6 @@ public class LoginActivity extends AppCompatActivity {
             CookieStore cookieStore1 = cookieJar.getCookieStore();
             List<Cookie> cookies1 = cookieStore1.getCookies();
             cookie = cookies1.get(0);
-            if (cookie == null) {
-
-                LogUtil.m("验证码获取cookie失败" + cookie.value());
-            }
 
             LogUtil.m("登录COOKIE值：" + cookie.value());
         } catch (Exception e) {
@@ -238,6 +258,7 @@ public class LoginActivity extends AppCompatActivity {
                             String reult1 = reult.substring(0, end);
                             String reult2 = reult1.replace("'", "\"");
                             LogUtil.e("结果" + reult2);
+                            saveData(checkbox.isChecked());
                             progressDialog.dismiss();
                             ToastUtil.showToast(LoginActivity.this, "登录成功");
                             Intent intent = new Intent(LoginActivity.this, Main_interface.class);
