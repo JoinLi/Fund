@@ -18,10 +18,10 @@ import ly.funds.fragment.SocialFragment;
 
 public class Main_interface extends BaseActivity implements View.OnClickListener {
 
-    @Bind(R.id.text_huoyuan)
+    @Bind(R.id.text_fund)
     TextView text_huoyuan;
 
-    @Bind(R.id.text_cheyuan)
+    @Bind(R.id.text_social)
     TextView text_cheyuan;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
@@ -33,7 +33,6 @@ public class Main_interface extends BaseActivity implements View.OnClickListener
         setStatusBar();
         ButterKnife.bind(this);
         initListener();
-
 
     }
 
@@ -79,17 +78,17 @@ public class Main_interface extends BaseActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.text_cheyuan:
+            case R.id.text_social:
                 hiddenLayout();
                 text_cheyuan.setBackground(ContextCompat.getDrawable(Main_interface.this, R.drawable.toobar_bg_select_right));
                 text_cheyuan.setTextColor(ContextCompat.getColor(Main_interface.this, R.color.colorPrimary));
-                viewpager.setCurrentItem(0);
+                viewpager.setCurrentItem(1);
                 break;
-            case R.id.text_huoyuan:
+            case R.id.text_fund:
                 hiddenLayout();
                 text_huoyuan.setBackground(ContextCompat.getDrawable(Main_interface.this, R.drawable.toobar_bg_select_left));
                 text_huoyuan.setTextColor(ContextCompat.getColor(Main_interface.this, R.color.colorPrimary));
-                viewpager.setCurrentItem(1);
+                viewpager.setCurrentItem(0);
                 break;
 
             default:
@@ -131,4 +130,6 @@ public class Main_interface extends BaseActivity implements View.OnClickListener
 
         return super.onKeyDown(keyCode, event);
     }
+
+
 }

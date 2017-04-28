@@ -1,13 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_cheyuan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical">
 
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:text="正在开发中..."/>
-</android.support.design.widget.CoordinatorLayout>
+    <ly.funds.view.SpringScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#FFF">
+
+                <ly.funds.view.CircleImageView
+                    android:id="@+id/photo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="25dp"
+                    android:src="@mipmap/ic_logo" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/photo"
+                    android:text="春风十里"
+                    android:textColor="#D19845"
+                    android:textSize="17dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_mix_top"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_xfz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_sfz"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_registered_height"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_shebao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_shebao"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_registered_height"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_yanglao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_yanglao"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_mix_top"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_yiliao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_yiliao"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_registered_height"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_shiye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_shiye"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_registered_height"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_gongshang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_gongshang"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_mix_top"
+                android:background="@color/scrollview_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_fabu_height"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/text_shengyu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_shengyu"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/context_registered_height"
+                android:background="@color/scrollview_bg" />
+
+        </LinearLayout>
+
+    </ly.funds.view.SpringScrollView>
+
+
+</LinearLayout>

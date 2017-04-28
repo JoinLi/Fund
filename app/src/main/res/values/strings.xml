@@ -25,4 +25,11 @@
     <string name="text_gr">个人账号：</string>
     <string name="text_kh">开户日期：</string>
     <string name="text_dwzh">单位账号：</string>
+
+    <string name="text_shebao">社保卡号：</string>
+    <string name="text_yanglao">养老保险：</string>
+    <string name="text_yiliao">医疗保险：</string>
+    <string name="text_shiye">失业保险：</string>
+    <string name="text_gongshang">工伤保险：</string>
+    <string name="text_shengyu">生育保险：</string>
 </resources>
