@@ -10,6 +10,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.Calendar;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import ly.funds.R;
 import ly.funds.bean.FundBean;
 import ly.funds.bean.FundResultBean;
@@ -148,5 +149,9 @@ public class FundFragment extends BaseFragment {
         }
     }
 
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
 }

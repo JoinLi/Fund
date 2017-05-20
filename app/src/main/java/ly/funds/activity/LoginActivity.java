@@ -33,6 +33,7 @@ import butterknife.ButterKnife;
 import ly.funds.R;
 import ly.funds.bean.FundApi;
 import ly.funds.util.LogUtil;
+import ly.funds.util.SPUtils;
 import ly.funds.util.ToastUtil;
 import okhttp3.Call;
 import okhttp3.Cookie;
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         getCode();
 
     }
+
 
     private void initView() {
         im_yzm.setOnClickListener(new OnClickListener() {
@@ -184,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginPosts(String yzm, String id, String passWord) {
+    private void loginPosts(String yzm, final String zh, final String passWord) {
 
         OkHttpUtils
                 .post()
@@ -192,7 +194,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addHeader("Cookie", "JSESSIONID=" + cookie + "")
                 .addHeader("Content-Type",
                         "application/x-www-form-urlencoded")
-                .addParams("certinum", id)
+                .addParams("certinum", zh)
                 .addParams("perpwd", passWord)
                 .addParams("vericode", yzm)
                 .build()
@@ -209,6 +211,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(String response, int id) {
                         LogUtil.e("数据" + response);
                         if (response.indexOf("个人信息查询") != -1) {
+                            SPUtils.put(LoginActivity.this, "id", zh);
+                            SPUtils.put(LoginActivity.this, "password", passWord);
                             getLoginValue();
                         } else {
                             getCode();
@@ -265,6 +269,7 @@ public class LoginActivity extends AppCompatActivity {
                             intent.putExtra("result", reult2);
                             intent.putExtra("cookie", cookie.value());
                             startActivity(intent);
+                            finish();
                         } catch (Exception e) {
                             progressDialog.dismiss();
                             ToastUtil.showToast(LoginActivity.this, "服务器错误");

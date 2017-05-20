@@ -30,6 +30,7 @@ public abstract class BaseFragment extends Fragment {
         LogUtil.m("   " + this.getClass().getSimpleName());
         convertView = inflater.inflate(getLayoutId(), container, false);
         mViews = new SparseArray<>();
+        ButterKnife.bind(this, convertView);
         initView();
         isInitView = true;
         lazyLoadData();
@@ -39,7 +40,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
         LogUtil.m("   " + this.getClass().getSimpleName());
     }
 
